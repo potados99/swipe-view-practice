@@ -7,7 +7,9 @@
     android:background="@color/colorAccent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginStart="@dimen/page_margin"
-    android:layout_marginEnd="@dimen/page_margin">
+    android:layout_marginEnd="@dimen/page_margin"
+    android:layout_marginTop="@dimen/page_margin"
+    android:layout_marginBottom="@dimen/page_margin">
 
     <TextView
         tools:text="yeah"

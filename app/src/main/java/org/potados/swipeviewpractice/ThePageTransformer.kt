@@ -27,15 +27,15 @@ class ThePageTransformer(
         val transformRange = 0.3f
 
         if (abs(position) < transformRange) {
-            page.scaleX = scaleFormula(2.0f, transformRange, position)
-            page.scaleY = scaleFormula(2.0f, transformRange, position)
+            page.scaleX = scaleFormula(1.0f, 0.5f, transformRange, position)
+            page.scaleY = scaleFormula(1.0f, 0.5f, transformRange, position)
         } else {
-            page.scaleX = 1f
-            page.scaleY = 1f
+            page.scaleX = 0.5f
+            page.scaleY = 0.5f
         }
     }
 
-    private fun scaleFormula(maxScale: Float, transformRange: Float, position: Float): Float {
-        return maxScale - abs(position)*(maxScale - 1f)/(transformRange)
+    private fun scaleFormula(maxScale: Float, minScale: Float,transformRange: Float, position: Float): Float {
+        return maxScale - abs(position)*(maxScale - minScale)/(transformRange)
     }
 }
