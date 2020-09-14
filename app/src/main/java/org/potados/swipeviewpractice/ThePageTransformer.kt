@@ -2,7 +2,9 @@ package org.potados.swipeviewpractice
 
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginStart
 import androidx.viewpager2.widget.ViewPager2
 import kotlin.math.abs
 
@@ -23,16 +25,6 @@ class ThePageTransformer(
         Log.i(TAG, "position: ${position}, offset ${offset}.")
 
         page.translationX = offset
-
-        val transformRange = 0.3f
-
-        if (abs(position) < transformRange) {
-            page.scaleX = scaleFormula(1.0f, 0.5f, transformRange, position)
-            page.scaleY = scaleFormula(1.0f, 0.5f, transformRange, position)
-        } else {
-            page.scaleX = 0.5f
-            page.scaleY = 0.5f
-        }
     }
 
     private fun scaleFormula(maxScale: Float, minScale: Float,transformRange: Float, position: Float): Float {
