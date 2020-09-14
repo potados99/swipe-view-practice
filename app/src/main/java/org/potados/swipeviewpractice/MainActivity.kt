@@ -15,26 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setAdapter()
-        setSidePreview()
     }
 
     private fun setAdapter() {
-        with(the_pager) {
-            adapter = TheAdapter(listOf("One", "Two", "Three"))
-        }
-    }
-
-    private fun setSidePreview() {
-        with(the_pager) {
-            offscreenPageLimit = 3
-
-            // Space between pages.
-            val pageSpacePx = resources.getDimensionPixelOffset(R.dimen.page_space)
-
-            // The margin applied to the item view.
-            val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.page_margin)
-
-            setPageTransformer(ThePageTransformer(pageSpacePx, pageMarginPx))
+        with(the_recyclerView) {
+            adapter = TheAdapter(listOf("One", "Two", "Three", "Four", "Five"))
         }
     }
 }

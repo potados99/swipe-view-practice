@@ -5,18 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.the_card.view.*
-import kotlinx.android.synthetic.main.the_item.view.*
+import java.lang.Integer.min
 
-class TheAdapter(
+class TheCardSwiperAdapter(
     private val items: List<String> = arrayListOf()
-) : RecyclerView.Adapter<TheAdapter.TheViewHolder>() {
+) : RecyclerView.Adapter<TheCardSwiperAdapter.TheViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TheViewHolder {
         return TheViewHolder(parent)
     }
 
     override fun onBindViewHolder(holder: TheViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items.slice(position*3..(min(position*3 + 2, items.size - 1))))
     }
 
     override fun getItemCount(): Int {
@@ -25,12 +25,11 @@ class TheAdapter(
 
     class TheViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        constructor(parent: ViewGroup) : this(LayoutInflater.from(parent.context).inflate(R.layout.the_item, parent, false))
+        constructor(parent: ViewGroup) : this(LayoutInflater.from(parent.context).inflate(R.layout.the_card, parent, false))
 
-        fun bind(content: String) {
+        fun bind(contents: List<String>) {
             with(itemView) {
-                section_name.text = content
-                the_card_swiper_pager.adapter = TheCardSwiperAdapter(listOf("Hello", "World", "Lorem", "Ipsum", "Dolor", "Amit"))
+                the_prop_stack.adapter = ThePropAdapter(contents)
             }
         }
     }
