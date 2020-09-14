@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.the_stack.view.*
+import kotlin.math.ceil
 import kotlin.math.min
 
 class ThePropStackPagerAdapter(
@@ -24,7 +25,7 @@ class ThePropStackPagerAdapter(
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return ceil(items.size.toDouble()/stackSize).toInt()
     }
 
     class TheViewHolder(view: View) : RecyclerView.ViewHolder(view) {
