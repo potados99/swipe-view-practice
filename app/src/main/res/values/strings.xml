@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SwipeViewPractice</string>
+    <string name="desc_button">The Button</string>
 </resources>

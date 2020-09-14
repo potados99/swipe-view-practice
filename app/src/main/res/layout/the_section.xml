@@ -4,38 +4,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginTop="@dimen/section_vertical_margin"
+    android:layout_marginBottom="@dimen/section_vertical_margin"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/section_name"
-        tools:text="Section A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/section_horizontal_margin"
         android:textStyle="bold"
         android:textSize="22sp"
-        android:layout_marginStart="22dp"
-        android:textColor="#000" />
+        android:textColor="#000"
+        tools:text="Section A" />
 
     <ImageButton
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="@string/desc_button"
         app:layout_constraintTop_toTopOf="@id/section_name"
         app:layout_constraintBottom_toBottomOf="@id/section_name"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="22dp"
+        android:layout_marginEnd="@dimen/section_horizontal_margin"
         android:background="@drawable/ic_arrow_forward_24px" />
 
     <androidx.viewpager2.widget.ViewPager2
-        tools:listitem="@layout/the_stack"
         android:id="@+id/the_prop_stack_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/section_name" />
-
+        app:layout_constraintTop_toBottomOf="@id/section_name"
+        tools:listitem="@layout/the_stack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

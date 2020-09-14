@@ -24,7 +24,6 @@ class TheSectionRecyclerAdapter(
     }
 
     class TheViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         constructor(parent: ViewGroup) : this(LayoutInflater.from(parent.context).inflate(R.layout.the_section, parent, false))
 
         fun bind(content: String) {

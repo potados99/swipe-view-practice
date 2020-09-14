@@ -9,10 +9,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setAdapter()
+        setSectionRecyclerView()
     }
 
-    private fun setAdapter() {
+    private fun setSectionRecyclerView() {
         with(the_section_recycler) {
             adapter = TheSectionRecyclerAdapter(listOf("One", "Two", "Three", "Four", "Five"))
         }
