@@ -31,8 +31,8 @@
         android:background="@drawable/ic_arrow_forward_24px" />
 
     <androidx.viewpager2.widget.ViewPager2
-        tools:listitem="@layout/the_card"
-        android:id="@+id/the_card_swiper_pager"
+        tools:listitem="@layout/the_stack"
+        android:id="@+id/the_prop_stack_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/section_name" />
