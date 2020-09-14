@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="page_margin">90dp</dimen>
-    <dimen name="page_space">40dp</dimen>
+    <dimen name="page_margin">24dp</dimen>
+    <dimen name="page_space">10dp</dimen>
 
 </resources>

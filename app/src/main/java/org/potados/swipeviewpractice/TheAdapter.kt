@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.the_card.view.*
 import kotlinx.android.synthetic.main.the_item.view.*
 
 class TheAdapter(
@@ -30,7 +29,18 @@ class TheAdapter(
         fun bind(content: String) {
             with(itemView) {
                 section_name.text = content
-                the_card_swiper_pager.adapter = TheCardSwiperAdapter(listOf("Hello", "World", "Lorem", "Ipsum", "Dolor", "Amit"))
+                with(the_card_swiper_pager) {
+                    adapter = TheCardSwiperAdapter(listOf("Hello", "World", "Lorem", "Ipsum", "Dolor"))
+                    offscreenPageLimit = 3
+
+                    // Space between pages.
+                    val pageSpacePx = resources.getDimensionPixelOffset(R.dimen.page_space)
+
+                    // The margin applied to the item view.
+                    val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.page_margin)
+
+                    setPageTransformer(ThePageTransformer(pageSpacePx, pageMarginPx))
+                }
             }
         }
     }

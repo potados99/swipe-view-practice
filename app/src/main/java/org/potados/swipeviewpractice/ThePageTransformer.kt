@@ -26,8 +26,4 @@ class ThePageTransformer(
 
         page.translationX = offset
     }
-
-    private fun scaleFormula(maxScale: Float, minScale: Float,transformRange: Float, position: Float): Float {
-        return maxScale - abs(position)*(maxScale - minScale)/(transformRange)
-    }
 }
