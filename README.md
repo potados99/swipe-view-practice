@@ -16,11 +16,11 @@ PlayStore나 AppStore처럼 세로 스크롤 뷰 속에 가로 스크롤 컨텐�
 
 ~~~
 root
-  └ the_section_recycler
+  └ the_section_recycler (RecyclerView)
     └ Section
-      └ the_prop_stack_pager
+      └ the_prop_stack_pager (ViewPager2)
         └ Prop Stack
-          └ the_prop_recycler
+          └ the_prop_recycler (RecyclerView)
             └ Prop
           └ ...
         └ ...
