@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.the_prop.view.*
 
-class ThePropRecyclerAdapter(
-    private val props: List<String> = listOf()
-) : RecyclerView.Adapter<ThePropRecyclerAdapter.TheViewHolder>() {
+class ThePropRecyclerAdapter() : RecyclerView.Adapter<ThePropRecyclerAdapter.TheViewHolder>() {
+
+    var props: List<String> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TheViewHolder {
         return TheViewHolder(parent)

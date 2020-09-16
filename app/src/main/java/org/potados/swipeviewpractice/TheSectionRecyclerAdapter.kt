@@ -8,8 +8,10 @@ import androidx.viewpager2.widget.ViewPager2
 import kotlinx.android.synthetic.main.the_section.view.*
 
 class TheSectionRecyclerAdapter(
-    private val items: List<String> = arrayListOf()
+    private val pool: RecyclerView.RecycledViewPool
 ) : RecyclerView.Adapter<TheSectionRecyclerAdapter.TheViewHolder>() {
+
+    var items: List<String> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TheViewHolder {
         return TheViewHolder(parent)
@@ -23,17 +25,24 @@ class TheSectionRecyclerAdapter(
         return items.size
     }
 
-    class TheViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class TheViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         constructor(parent: ViewGroup) : this(LayoutInflater.from(parent.context).inflate(R.layout.the_section, parent, false))
+
+        init {
+            setTransformer(itemView.the_prop_stack_pager)
+        }
+
+        private val theAdapter = ThePropStackPagerAdapter(pool).also {
+            itemView.the_prop_stack_pager.adapter = it
+        }
 
         fun bind(content: String) {
             with(itemView) {
                 section_name.text = content
 
-                with(the_prop_stack_pager) {
-                    adapter = ThePropStackPagerAdapter(listOf("Hello", "World", "Lorem", "Ipsum", "Dolor"))
-
-                    setTransformer(this)
+                with(theAdapter) {
+                    items = listOf("Hello", "World", "Lorem", "Ipsum", "Dolor")
+                    notifyDataSetChanged()
                 }
             }
         }
@@ -41,7 +50,7 @@ class TheSectionRecyclerAdapter(
         private fun setTransformer(pager: ViewPager2) {
             with(pager) {
                 // Pre-load side pages.
-                offscreenPageLimit = 3
+                offscreenPageLimit = 1
 
                 val pageSpacePx = resources.getDimensionPixelOffset(R.dimen.page_space)
                 val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.page_margin)
