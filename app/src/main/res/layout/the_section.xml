@@ -41,6 +41,6 @@
         android:paddingEnd="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/section_name"
-        tools:listitem="@layout/the_stack" />
+        tools:listitem="@layout/the_page" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

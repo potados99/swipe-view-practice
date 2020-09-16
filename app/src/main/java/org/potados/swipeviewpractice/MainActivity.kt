@@ -2,8 +2,6 @@ package org.potados.swipeviewpractice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,19 +13,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setSectionRecyclerView() {
-        val outerPool = RecyclerView.RecycledViewPool()
-        val innerPool = RecyclerView.RecycledViewPool()
-
         with(the_section_recycler) {
-            adapter = TheSectionRecyclerAdapter().apply {
-                items = listOf(
+            adapter = SectionAdapter().apply {
+                sections = listOf(
                     "One", "Two", "Three", "Four",
                     "Five", "Six", "Seven", "Eight",
                     "Nine", "Ten", "Eleven", "Twelve",
                     "Thirteen", "Fourteen", "Fifteen", "Sixteen"
                 )
-
-                notifyDataSetChanged()
             }
         }
     }

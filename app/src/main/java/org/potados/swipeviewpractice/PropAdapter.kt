@@ -1,15 +1,18 @@
 package org.potados.swipeviewpractice
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.the_prop.view.*
 
-class ThePropRecyclerAdapter : RecyclerView.Adapter<ThePropRecyclerAdapter.TheViewHolder>() {
+class PropAdapter : RecyclerView.Adapter<PropAdapter.TheViewHolder>() {
 
-    var props: List<String> = listOf()
+    var pagedProps: List<String> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TheViewHolder {
         Reporter.inner.report()
@@ -18,11 +21,11 @@ class ThePropRecyclerAdapter : RecyclerView.Adapter<ThePropRecyclerAdapter.TheVi
     }
 
     override fun onBindViewHolder(holder: TheViewHolder, position: Int) {
-        holder.bind(props[position])
+        holder.bind(pagedProps[position])
     }
 
     override fun getItemCount(): Int {
-        return props.size
+        return pagedProps.size
     }
 
     class TheViewHolder(view: View) : RecyclerView.ViewHolder(view) {
