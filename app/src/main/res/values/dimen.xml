@@ -2,7 +2,7 @@
 <resources>
 
     <dimen name="section_vertical_margin">16dp</dimen>
-    <dimen name="section_horizontal_margin">22dp</dimen>
+    <dimen name="section_horizontal_margin">24dp</dimen>
 
     <dimen name="page_margin">24dp</dimen>
     <dimen name="page_space">10dp</dimen>

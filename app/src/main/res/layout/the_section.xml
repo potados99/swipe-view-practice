@@ -31,10 +31,15 @@
         android:layout_marginEnd="@dimen/section_horizontal_margin"
         android:background="@drawable/ic_arrow_forward_24px" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/the_prop_stack_pager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/the_prop_stack_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/section_name"
         tools:listitem="@layout/the_stack" />
 

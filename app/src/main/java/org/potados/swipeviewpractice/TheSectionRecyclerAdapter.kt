@@ -3,13 +3,16 @@ package org.potados.swipeviewpractice
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import kotlinx.android.synthetic.main.the_section.view.*
 
-class TheSectionRecyclerAdapter(
-    private val pool: RecyclerView.RecycledViewPool
-) : RecyclerView.Adapter<TheSectionRecyclerAdapter.TheViewHolder>() {
+class TheSectionRecyclerAdapter() : RecyclerView.Adapter<TheSectionRecyclerAdapter.TheViewHolder>() {
+
+    private val propStackPool = RecyclerView.RecycledViewPool()
+    private val propPool = RecyclerView.RecycledViewPool()
 
     var items: List<String> = listOf()
 
@@ -29,11 +32,21 @@ class TheSectionRecyclerAdapter(
         constructor(parent: ViewGroup) : this(LayoutInflater.from(parent.context).inflate(R.layout.the_section, parent, false))
 
         init {
-            setTransformer(itemView.the_prop_stack_pager)
+            // setTransformer(itemView.the_prop_stack_pager)
+
+            with(itemView.the_prop_stack_recycler) {
+
+                PagerSnapHelper().attachToRecyclerView(this)
+
+                with(layoutManager as LinearLayoutManager) {
+                    setRecycledViewPool(propStackPool)
+                    recycleChildrenOnDetach = true
+                }
+            }
         }
 
-        private val theAdapter = ThePropStackPagerAdapter(pool).also {
-            itemView.the_prop_stack_pager.adapter = it
+        private val theAdapter = ThePropStackRecyclerAdapter(propPool).also {
+            itemView.the_prop_stack_recycler.adapter = it
         }
 
         fun bind(content: String) {

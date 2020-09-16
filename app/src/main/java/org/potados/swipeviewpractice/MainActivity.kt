@@ -15,10 +15,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setSectionRecyclerView() {
-        val pool = RecyclerView.RecycledViewPool()
+        val outerPool = RecyclerView.RecycledViewPool()
+        val innerPool = RecyclerView.RecycledViewPool()
 
         with(the_section_recycler) {
-            adapter = TheSectionRecyclerAdapter(pool).apply {
+            adapter = TheSectionRecyclerAdapter().apply {
                 items = listOf(
                     "One", "Two", "Three", "Four",
                     "Five", "Six", "Seven", "Eight",

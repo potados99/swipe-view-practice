@@ -1,5 +1,6 @@
 package org.potados.swipeviewpractice
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +10,16 @@ import kotlinx.android.synthetic.main.the_stack.view.*
 import kotlin.math.ceil
 import kotlin.math.min
 
-class ThePropStackPagerAdapter(
-    private val pool: RecyclerView.RecycledViewPool,
+class ThePropStackRecyclerAdapter(
+    private val propPool: RecyclerView.RecycledViewPool,
     var stackSize: Int = 3,
-) : RecyclerView.Adapter<ThePropStackPagerAdapter.TheViewHolder>() {
+) : RecyclerView.Adapter<ThePropStackRecyclerAdapter.TheViewHolder>() {
 
     var items: List<String> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TheViewHolder {
+        Reporter.outer.report()
+
         return TheViewHolder(parent)
     }
 
@@ -36,7 +39,7 @@ class ThePropStackPagerAdapter(
 
         init {
             with(itemView.the_prop_recycler) {
-                setRecycledViewPool(pool)
+                setRecycledViewPool(propPool)
                 (layoutManager as LinearLayoutManager).recycleChildrenOnDetach = true
             }
         }

@@ -1,16 +1,19 @@
 package org.potados.swipeviewpractice
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.the_prop.view.*
 
-class ThePropRecyclerAdapter() : RecyclerView.Adapter<ThePropRecyclerAdapter.TheViewHolder>() {
+class ThePropRecyclerAdapter : RecyclerView.Adapter<ThePropRecyclerAdapter.TheViewHolder>() {
 
     var props: List<String> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TheViewHolder {
+        Reporter.inner.report()
+
         return TheViewHolder(parent)
     }
 
