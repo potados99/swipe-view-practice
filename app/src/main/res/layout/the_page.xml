@@ -5,7 +5,7 @@
     android:id="@+id/the_prop_recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="6dp"
-    android:layout_marginEnd="6dp"
+    android:layout_marginStart="@dimen/page_horizontal_margin"
+    android:layout_marginEnd="@dimen/page_horizontal_margin"
     tools:listitem="@layout/the_prop"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

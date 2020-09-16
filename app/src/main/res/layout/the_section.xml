@@ -17,14 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/section_horizontal_margin"
         android:textStyle="bold"
-        android:textSize="22sp"
+        android:textSize="@dimen/text_big"
         android:textColor="#000"
         tools:text="Section A" />
 
     <ImageButton
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/more_button"
         android:contentDescription="@string/desc_button"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintTop_toTopOf="@id/section_name"
         app:layout_constraintBottom_toBottomOf="@id/section_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,8 +39,8 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:paddingStart="@dimen/section_page_horizontal_padding"
+        android:paddingEnd="@dimen/section_page_horizontal_padding"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/section_name"
         tools:listitem="@layout/the_page" />

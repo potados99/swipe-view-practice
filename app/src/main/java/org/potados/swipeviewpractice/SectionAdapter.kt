@@ -3,6 +3,7 @@ package org.potados.swipeviewpractice
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -54,6 +55,10 @@ class SectionAdapter : RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() 
         fun bind(content: String) {
             with(itemView) {
                 section_name.text = content
+
+                more_button.setOnClickListener {
+                    Toast.makeText(context, "Not implemented!", Toast.LENGTH_SHORT).show()
+                }
             }
 
             propStackAdapter.wholeProps = listOf("Hello", "World", "Lorem", "Ipsum", "Dolor")
